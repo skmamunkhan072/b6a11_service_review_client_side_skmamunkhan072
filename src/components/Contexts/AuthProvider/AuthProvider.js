@@ -44,6 +44,12 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, facebookprovider);
   };
 
+  // User Logout user
+  const userLogOut = () => {
+    console.log("hello");
+    return signOut(auth);
+  };
+
   // current user track function
   useLayoutEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currenUser) => {
@@ -57,10 +63,12 @@ const AuthProvider = ({ children }) => {
   const AuthContextInfo = {
     thim,
     setThim,
+    currentUser,
     handelEmailAndPassword,
     handelGoogleSingIn,
     handelFacebookLogin,
     handelGitHubLogin,
+    userLogOut,
   };
   return (
     <AuthContext.Provider value={AuthContextInfo}>

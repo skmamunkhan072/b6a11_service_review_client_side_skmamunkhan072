@@ -8,8 +8,15 @@ import { MdOutlineClose } from "react-icons/md";
 import "./Header.css";
 
 const Header = () => {
-  const { thim, setThim } = useContext(AuthContext);
+  const { thim, setThim, currentUser, userLogOut } = useContext(AuthContext);
   const [navbar, setNavbar] = useState(false);
+
+  // user logout function
+  const handelUserLogOut = () => {
+    userLogOut()
+      .then()
+      .catch((error) => console.log(error));
+  };
 
   return (
     <div
@@ -86,7 +93,7 @@ const Header = () => {
                       <span></span>
                     </Link>
                   </li>
-                  {/* <li className="flex justify-center items-center menu_link px-8 sm:w-[9rem] sm:mx-auto md:w-[9rem] md:mx-auto lg:m-[3px]">
+                  <li className="flex justify-center items-center menu_link px-8 sm:w-[9rem] sm:mx-auto md:w-[9rem] md:mx-auto lg:m-[3px]">
                     {currentUser ? (
                       <Link onClick={handelUserLogOut} to="/">
                         LogOut
@@ -104,7 +111,7 @@ const Header = () => {
                         <span></span>
                       </Link>
                     )}
-                  </li> */}
+                  </li>
 
                   <div
                     className="thim_btn_wraper flex justify-center items-center "
