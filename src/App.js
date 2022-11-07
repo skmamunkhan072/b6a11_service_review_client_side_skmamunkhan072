@@ -1,22 +1,11 @@
+import { RouterProvider } from "react-router-dom";
 import "./App.css";
-import { toast } from "react-toastify";
+import { router } from "./components/Router/Routes/Routes";
 
 function App() {
-  const handelTost = () => {
-    toast.success("🦄 Wow so easy!", {
-      position: "top-center",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-    });
-  };
   return (
     <div className="App">
-      <button onClick={handelTost}>click mem</button>
+      <RouterProvider router={router} />
     </div>
   );
 }
