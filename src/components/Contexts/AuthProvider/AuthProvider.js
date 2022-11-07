@@ -30,6 +30,11 @@ const AuthProvider = ({ children }) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
+  // Login function
+  const handelLoginUser = (email, password) => {
+    return signInWithEmailAndPassword(auth, email, password);
+  };
+
   // Google sing in google provider
   const handelGoogleSingIn = () => {
     return signInWithPopup(auth, googleProvider);
@@ -65,6 +70,7 @@ const AuthProvider = ({ children }) => {
     setThim,
     currentUser,
     handelEmailAndPassword,
+    handelLoginUser,
     handelGoogleSingIn,
     handelFacebookLogin,
     handelGitHubLogin,
