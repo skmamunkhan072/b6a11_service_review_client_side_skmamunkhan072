@@ -11,6 +11,7 @@ import slider7 from "../../../Assets/imessage/SliderImg/7.jpg";
 import slider8 from "../../../Assets/imessage/SliderImg/8.jpg";
 import SlidersItems from "../../SlidersItems/SlidersItems";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
+import Services from "../../Services/Services";
 
 const Home = () => {
   const { setSliderItem, setSelectSliderItem } = useContext(AuthContext);
@@ -30,20 +31,21 @@ const Home = () => {
   };
   return (
     <div>
-      <Sliders slider={slider} setSliderItem={setSliderItem} />
-      <div className="pb-5">
-        {/* <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20"> */}
-        <div className="grid gap-4 row-gap-5 sm:grid-cols-6 lg:grid-cols-8">
-          {slider.map((item) => (
-            <SlidersItems
-              key={item.id}
-              item={item}
-              handelSliderItems={handelSliderItems}
-            />
-          ))}
-          {/* </div> */}
+      <div>
+        <Sliders slider={slider} setSliderItem={setSliderItem} />
+        <div className="pb-5">
+          <div className="grid gap-4 row-gap-5 grid-cols-2 sm:grid-cols-6 lg:grid-cols-8">
+            {slider.map((item) => (
+              <SlidersItems
+                key={item.id}
+                item={item}
+                handelSliderItems={handelSliderItems}
+              />
+            ))}
+          </div>
         </div>
       </div>
+      <Services />
     </div>
   );
 };

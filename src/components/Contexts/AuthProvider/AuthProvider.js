@@ -61,7 +61,7 @@ const AuthProvider = ({ children }) => {
   useLayoutEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currenUser) => {
       setCorrentUser(currenUser);
-      console.log(currenUser);
+      // console.log(currenUser);
     });
     return () => {
       unsubscribe();

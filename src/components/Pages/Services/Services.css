@@ -1,0 +1,7 @@
+.section_header {
+  position: relative;
+  display: inline-block;
+  border-bottom: 5px solid #2dd4bf;
+  border-radius: 15px;
+  padding-bottom: 5px;
+}

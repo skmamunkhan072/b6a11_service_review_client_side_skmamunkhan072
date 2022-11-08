@@ -16,7 +16,7 @@ const SlidersBody = ({ slid, activ, setActiv }) => {
         className="w-full rounded-lg"
         alt="Slider img"
       />
-      <div className="absolute top-1/4 left-[30%] z-10">
+      <div className="absolute top-1/4 lg:left-[30%] md:left-[20%] sm:left-[10%] z-10">
         <h1 className="text-5xl mb-8">Serving affordable food</h1>
         <p className="mb-8">
           There are many variations of passages of available, but <br /> the
@@ -30,7 +30,7 @@ const SlidersBody = ({ slid, activ, setActiv }) => {
           Latest Project
         </button>
       </div>
-      <div className="slider_next_prev_btn absolute flex justify-end transform -translate-y-1/2  left-[45%] bottom-0">
+      <div className="slider_next_prev_btn absolute flex justify-end transform -translate-y-1/2 bottom-0 sm:left-[40%] md:left-[45%] lg:left-[45%]">
         <a
           onClick={() => {
             setActiv(false);

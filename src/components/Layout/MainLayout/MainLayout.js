@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Outlet } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
+import Footer from "../../Pages/Share/Footer/Footer";
 import Header from "../../Pages/Share/Header/Header";
 
 const MainLayout = () => {
@@ -14,7 +15,7 @@ const MainLayout = () => {
           <Outlet />
         </div>
         <div className="bg-base-200">
-          <h1>foooter</h1>
+          <Footer />
         </div>
       </div>
     </>
