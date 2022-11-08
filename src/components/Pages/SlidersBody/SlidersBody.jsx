@@ -8,10 +8,14 @@ const SlidersBody = ({ slid, activ, setActiv }) => {
   const { id, img, next, prev } = slid;
   return (
     <div
-      id={`slide${id}`}
+      id={`slide${selectSliderItem ? id : sliderItem.id}`}
       className="slider_content carousel-item relative w-full rounded-lg overflow-hidden	"
     >
-      <img src={img} className="w-full rounded-lg" alt="Slider img" />
+      <img
+        src={selectSliderItem ? img : sliderItem.img}
+        className="w-full rounded-lg"
+        alt="Slider img"
+      />
       <div className="absolute top-10 left-1/3 z-10">
         <h1 className="text-5xl mb-8">
           Affordable <br /> Price For Car <br /> Servicing
