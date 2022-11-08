@@ -54,7 +54,14 @@ const Services = () => {
           ))}
         </div>
         <div className="mt-10">
-          <button className="px-5 py-2 rounded-lg btn-accent">See All</button>
+          <div className="svg-wrapper">
+            <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
+              <rect id="shape" height="40" width="150" />
+            </svg>
+            <div id="text">
+              <button>See All</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
