@@ -24,6 +24,8 @@ const AuthProvider = ({ children }) => {
   // react useState
   const [thim, setThim] = useState(false);
   const [currentUser, setCorrentUser] = useState(null);
+  const [sliderItem, setSliderItem] = useState({});
+  const [selectSliderItem, setSelectSliderItem] = useState(true);
 
   // Crete User Google email adn password
   const handelEmailAndPassword = (email, password) => {
@@ -75,6 +77,10 @@ const AuthProvider = ({ children }) => {
     handelFacebookLogin,
     handelGitHubLogin,
     userLogOut,
+    sliderItem,
+    setSliderItem,
+    selectSliderItem,
+    setSelectSliderItem,
   };
   return (
     <AuthContext.Provider value={AuthContextInfo}>

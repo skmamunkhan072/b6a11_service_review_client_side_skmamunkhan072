@@ -9,6 +9,7 @@ import { AiOutlineGithub } from "react-icons/ai";
 import { FaFacebookF } from "react-icons/fa";
 import { MdDriveFileRenameOutline } from "react-icons/md";
 import "./SingIn.css";
+import SingInImg from "../../Assets/imessage/SinginImg/SingIn1.png";
 
 const SingIn = () => {
   const {
@@ -98,8 +99,8 @@ const SingIn = () => {
               <div className="block bg-white shadow-lg rounded-lg">
                 <div className="lg:flex lg:flex-wrap g-0">
                   <div className="lg:w-6/12 flex items-center lg:rounded-l-lg rounded-b-lg lg:rounded-br-none login_bg_color">
-                    <div className="text-white px-4 py-6 md:p-12 md:mx-6">
-                      <img src="sdlkjfjls" alt="" />
+                    <div className="text-white pl-12  md:mx-6">
+                      <img src={SingInImg} alt="" />
                     </div>
                   </div>
 

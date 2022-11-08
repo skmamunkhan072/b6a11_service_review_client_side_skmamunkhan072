@@ -1,0 +1,25 @@
+.slider-btn {
+  line-height: 0 !important;
+}
+
+.slider_content::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.9),
+    rgba(0, 0, 0, 0.2)
+  );
+  z-index: 1;
+}
+.slider_next_prev_btn {
+  z-index: 10;
+}
+
+.slid_active {
+  background: #ff3811 !important;
+}

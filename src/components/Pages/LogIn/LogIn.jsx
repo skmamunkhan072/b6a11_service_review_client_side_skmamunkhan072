@@ -7,6 +7,7 @@ import { FaUserAlt } from "react-icons/fa";
 import { AiOutlineGooglePlus } from "react-icons/ai";
 import { AiOutlineGithub } from "react-icons/ai";
 import { FaFacebookF } from "react-icons/fa";
+import LoginImg from "../../Assets/imessage/LoginImg/4.png";
 
 const LogIn = () => {
   const {
@@ -97,8 +98,8 @@ const LogIn = () => {
                 <div className="lg:flex lg:flex-wrap g-0">
                   {/* right  */}
                   <div className="lg:w-6/12 flex items-center lg:rounded-l-lg rounded-b-lg lg:rounded-br-none login_bg_color">
-                    <div className="text-white px-4 py-6 md:p-12 md:mx-6">
-                      <img src="sdfsd" alt="" />
+                    <div className="text-white md:mx-6">
+                      <img src={LoginImg} alt="" />
                     </div>
                   </div>
 

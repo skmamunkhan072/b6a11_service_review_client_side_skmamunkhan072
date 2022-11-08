@@ -1,0 +1,6 @@
+.slider_item img {
+  transition: all 0.5s ease-in-out;
+}
+.slider_item img:hover {
+  transform: scale(1.5);
+}
