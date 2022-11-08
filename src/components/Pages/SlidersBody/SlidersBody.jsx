@@ -16,10 +16,8 @@ const SlidersBody = ({ slid, activ, setActiv }) => {
         className="w-full rounded-lg"
         alt="Slider img"
       />
-      <div className="absolute top-10 left-1/3 z-10">
-        <h1 className="text-5xl mb-8">
-          Affordable <br /> Price For Car <br /> Servicing
-        </h1>
+      <div className="absolute top-1/4 left-[30%] z-10">
+        <h1 className="text-5xl mb-8">Serving affordable food</h1>
         <p className="mb-8">
           There are many variations of passages of available, but <br /> the
           majority have suffered alteration in some form

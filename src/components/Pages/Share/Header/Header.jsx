@@ -22,7 +22,7 @@ const Header = () => {
     <div
       className={`drop-shadow-xl ${
         thim ? "shadow-slate-200" : "shadow-white"
-      } `}
+      } sticky top-0 left-0`}
     >
       <nav className={`w-full ${thim ? "bg-white" : "bg-black"} `}>
         <div className="justify-between mx-auto w-10/12 md:w-10/12  lg:items-center lg:flex ">
