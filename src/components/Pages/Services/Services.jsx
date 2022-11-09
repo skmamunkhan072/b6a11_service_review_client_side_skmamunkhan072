@@ -25,7 +25,7 @@ const Services = () => {
             <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
               <rect id="shape" height="40" width="150" />
             </svg>
-            <div id="text">
+            <div className="text" id="see_all_btn">
               <Link to="/services">See All</Link>
             </div>
           </div>

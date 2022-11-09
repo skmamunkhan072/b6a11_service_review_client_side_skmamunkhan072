@@ -4,6 +4,7 @@ import "./ServicesCard.css";
 import { BsStopwatch } from "react-icons/bs";
 import Rating from "../Rating/Rating";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
+import "./ServicesCard.css";
 
 const ServicesCard = ({ card }) => {
   const { _id, rating, details, title, img, time } = card;
@@ -41,7 +42,7 @@ const ServicesCard = ({ card }) => {
               <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
                 <rect id="shape" height="40" width="150" />
               </svg>
-              <div id="text">
+              <div className="text" id="details_btn">
                 <Link to={`/services/${_id}`}>Details</Link>
               </div>
             </div>

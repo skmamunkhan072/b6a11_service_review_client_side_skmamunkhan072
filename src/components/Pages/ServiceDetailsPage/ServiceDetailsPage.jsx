@@ -1,12 +1,16 @@
 import React, { useContext } from "react";
-import img from "../../Assets/imessage/SliderImg/1.jpg";
+import { BsStopwatch } from "react-icons/bs";
+import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 import ReviewCard from "../ReviewCard/ReviewCard";
+import Rating from "../Share/Rating/Rating";
 import "./ServiceDetailsPage.css";
 
 const ServiceDetailsPage = () => {
   const { thim } = useContext(AuthContext);
-
+  const servicesDetailsData = useLoaderData();
+  console.log(servicesDetailsData);
+  const { details, img, rating, time, title, _id } = servicesDetailsData;
   return (
     <div className="py-20 ">
       <section className="mb-20">
@@ -24,43 +28,19 @@ const ServiceDetailsPage = () => {
           </div>
         </div>
         <div className="my-5 text-start w-3/4 mx-auto">
-          <h1 className="card-title">sdffdfsd</h1>
-          <p className="my-5">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem maiores
-            cumque, molestias nostrum voluptate soluta quis itaque esse eum
-            illum velit ratione. Dicta quaerat provident, placeat nostrum vel
-            maiores tempore iste accusantium molestiae repudiandae eaque quis
-            recusandae harum, commodi nesciunt.
-          </p>
-          <div className="flex justify-start items-center">
-            <div className="rating">
-              <input
-                type="radio"
-                name="rating-2"
-                className="mask mask-star-2 bg-orange-400"
-              />
-              <input
-                type="radio"
-                name="rating-2"
-                className="mask mask-star-2 bg-orange-400"
-              />
-              <input
-                type="radio"
-                name="rating-2"
-                className="mask mask-star-2 bg-orange-400"
-              />
-              <input
-                type="radio"
-                name="rating-2"
-                className="mask mask-star-2 bg-orange-400"
-              />
-              <input
-                type="radio"
-                name="rating-2"
-                className="mask mask-star-2 bg-orange-400"
-              />
+          <h1 className="card-title text-3xl">{title}</h1>
+          <p className="my-5">{details}</p>
+          <div className="flex justify-between items-center">
+            <div className="flex justify-start items-center">
+              <Rating />
+              <p className={`ml-2 mt-2 ${thim ? "text-black" : ""}`}>
+                ( {rating} )
+              </p>
             </div>
-            <p className={`ml-2 ${thim ? "text-black" : ""}`}>( 2.5 )</p>
+            <div className="flex items-center justify-center">
+              <BsStopwatch className="mr-1 mt-1" />
+              <span>{time}d...</span>
+            </div>
           </div>
         </div>
       </section>

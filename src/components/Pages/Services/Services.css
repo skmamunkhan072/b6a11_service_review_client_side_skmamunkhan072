@@ -31,12 +31,15 @@
   stroke-dashoffset: 0;
   stroke: #06d6a0;
 }
-#text {
+.text {
   position: absolute;
   top: 19%;
   left: 30%;
   color: #009ffd;
   background: transparent;
+}
+#see_all_btn {
+  left: 35%;
 }
 
 .svg-wrapper {
@@ -76,7 +79,7 @@
     height: 250px;
   }
 
-  .services_card_text-Wrap {
+  .services_card_.text-Wrap {
     width: 100%;
   }
 }

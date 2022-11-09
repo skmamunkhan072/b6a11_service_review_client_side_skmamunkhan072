@@ -27,36 +27,43 @@ const AuthProvider = ({ children }) => {
   const [sliderItem, setSliderItem] = useState({});
   const [selectSliderItem, setSelectSliderItem] = useState(true);
   const [servicesdata, setServicesdata] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const Nodata = "No data Found";
 
   // Crete User Google email adn password
   const handelEmailAndPassword = (email, password) => {
+    setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   // Login function
   const handelLoginUser = (email, password) => {
+    setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
   // Google sing in google provider
   const handelGoogleSingIn = () => {
+    setLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
 
   //Git hub sing in and Login function
   const handelGitHubLogin = () => {
+    setLoading(true);
     return signInWithPopup(auth, gitHubProvider);
   };
   // Facebook Login function
   const handelFacebookLogin = () => {
+    setLoading(true);
     return signInWithPopup(auth, facebookprovider);
   };
 
   // User Logout user
   const userLogOut = () => {
-    console.log("hello");
+    // console.log("hello");
+    setLoading(true);
     return signOut(auth);
   };
 
@@ -65,6 +72,7 @@ const AuthProvider = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (currenUser) => {
       setCorrentUser(currenUser);
       // console.log(currenUser);
+      setLoading(false);
     });
     return () => {
       unsubscribe();
@@ -87,6 +95,8 @@ const AuthProvider = ({ children }) => {
     Nodata,
     servicesdata,
     setServicesdata,
+    loading,
+    setLoading,
   };
   return (
     <AuthContext.Provider value={AuthContextInfo}>

@@ -1,5 +1,6 @@
 import React from "react";
 import { BsStopwatch } from "react-icons/bs";
+import { Link } from "react-router-dom";
 import Rating from "../Share/Rating/Rating";
 import SectionTaitle from "../Share/SectionTaitle/SectionTaitle";
 
@@ -8,6 +9,16 @@ const ReviewCard = () => {
     <div>
       <div>
         <SectionTaitle taitle={"Review"} />
+      </div>
+      <div className="mt-10 flex justify-end items-center">
+        <div className="svg-wrapper">
+          <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
+            <rect id="shape" height="40" width="150" />
+          </svg>
+          <div className="text" id="review_add_btn">
+            <Link to="/reviewadd">Review Add</Link>
+          </div>
+        </div>
       </div>
       <div className="mt-10">
         <div className="rounded-lg bg-slate-900 shadow-xl overflow-hidden	p-10">
