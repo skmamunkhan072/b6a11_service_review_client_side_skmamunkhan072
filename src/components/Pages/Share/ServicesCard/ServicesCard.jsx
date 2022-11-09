@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./ServicesCard.css";
 import { BsStopwatch } from "react-icons/bs";
+import Rating from "../Rating/Rating";
 
 const ServicesCard = ({ card }) => {
   const { _id, rating, details, taitle, imessage, time } = card;
@@ -19,39 +20,15 @@ const ServicesCard = ({ card }) => {
           <h1 className="card-title mb-2 text-2xl">{taitle}</h1>
           <p>{details.length > 100 ? details.slice(0, 100) : "no"}</p>
           <div className="mt-2">
-            <div className="rating">
-              <input
-                type="radio"
-                name="rating-2"
-                className="mask mask-star-2 bg-orange-400"
-              />
-              <input
-                type="radio"
-                name="rating-2"
-                className="mask mask-star-2 bg-orange-400"
-              />
-              <input
-                type="radio"
-                name="rating-2"
-                className="mask mask-star-2 bg-orange-400"
-              />
-              <input
-                type="radio"
-                name="rating-2"
-                className="mask mask-star-2 bg-orange-400"
-              />
-              <input
-                type="radio"
-                name="rating-2"
-                className="mask mask-star-2 bg-orange-400"
-              />
+            <div>
+              <Rating />
+              <span className="mt-2 text-sm ml-3">{`( ${rating} )`}</span>
             </div>
-            <span className="ml-2">( {rating} )</span>
           </div>
 
           <div className="my-4 flex justify-between items-end">
             <div className="flex justify-center items-center">
-              <BsStopwatch />
+              <BsStopwatch className="mr-1" />
               <span>{time} d...</span>
             </div>
             <div className="svg-wrapper">

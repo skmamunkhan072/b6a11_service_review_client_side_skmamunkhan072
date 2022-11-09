@@ -1,0 +1,11 @@
+@media screen and (max-width: 781px) {
+  .review_cad-wraper {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .review_para {
+    margin-left: 0;
+    text-align: center;
+  }
+}
