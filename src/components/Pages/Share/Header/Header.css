@@ -21,7 +21,6 @@
   transition: 0.5s;
   cursor: pointer;
   margin-top: 0 !important;
-  /* margin: 0.5em; */
 }
 .menu_link {
   margin-bottom: 0 !important;
@@ -67,4 +66,10 @@
 .thim_btn_wraper {
   margin-top: 0 !important;
   font-size: 2rem;
+}
+
+@media screen and (max-width: 1175px) {
+  .navbar_wraper {
+    width: 95%;
+  }
 }

@@ -26,6 +26,9 @@ const AuthProvider = ({ children }) => {
   const [currentUser, setCorrentUser] = useState(null);
   const [sliderItem, setSliderItem] = useState({});
   const [selectSliderItem, setSelectSliderItem] = useState(true);
+  const [servicesdata, setServicesdata] = useState([]);
+
+  const Nodata = "No data Found";
 
   // Crete User Google email adn password
   const handelEmailAndPassword = (email, password) => {
@@ -81,6 +84,9 @@ const AuthProvider = ({ children }) => {
     setSliderItem,
     selectSliderItem,
     setSelectSliderItem,
+    Nodata,
+    servicesdata,
+    setServicesdata,
   };
   return (
     <AuthContext.Provider value={AuthContextInfo}>

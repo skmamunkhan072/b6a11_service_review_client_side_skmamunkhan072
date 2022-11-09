@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import "./Home.css";
 import Sliders from "../../Sliders/Sliders";
 import slider1 from "../../../Assets/imessage/SliderImg/1.jpg";
@@ -12,9 +12,17 @@ import slider8 from "../../../Assets/imessage/SliderImg/8.jpg";
 import SlidersItems from "../../SlidersItems/SlidersItems";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 import Services from "../../Services/Services";
+import { useLoaderData } from "react-router-dom";
 
 const Home = () => {
-  const { setSliderItem, setSelectSliderItem } = useContext(AuthContext);
+  const { setSliderItem, setSelectSliderItem, servicesdata, setServicesdata } =
+    useContext(AuthContext);
+  const servicesData = useLoaderData();
+  useEffect(() => {
+    if (servicesData) {
+      setServicesdata(servicesData);
+    }
+  }, [servicesData]);
   const slider = [
     { img: slider1, id: 1, prev: 8, next: 2 },
     { img: slider2, id: 2, prev: 1, next: 3 },
@@ -29,6 +37,7 @@ const Home = () => {
     setSliderItem({ id, next, prev, img });
     setSelectSliderItem(false);
   };
+
   return (
     <div>
       <div>

@@ -1,12 +1,16 @@
-import React, { useContext } from "react";
-import { Outlet } from "react-router-dom";
+import React, { useContext, useEffect } from "react";
+import { Outlet, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 import Footer from "../../Pages/Share/Footer/Footer";
 import Header from "../../Pages/Share/Header/Header";
 
 const MainLayout = () => {
-  const { thim } = useContext(AuthContext);
-
+  const { thim, setServicesdata } = useContext(AuthContext);
+  const servicesData = useLoaderData();
+  // setServicesdata(servicesData);
+  useEffect(() => {
+    setServicesdata(servicesData);
+  }, [servicesData]);
   return (
     <>
       <Header />

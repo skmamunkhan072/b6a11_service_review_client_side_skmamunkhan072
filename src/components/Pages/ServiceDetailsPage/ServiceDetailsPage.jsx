@@ -6,6 +6,7 @@ import "./ServiceDetailsPage.css";
 
 const ServiceDetailsPage = () => {
   const { thim } = useContext(AuthContext);
+
   return (
     <div className="py-20 ">
       <section className="mb-20">

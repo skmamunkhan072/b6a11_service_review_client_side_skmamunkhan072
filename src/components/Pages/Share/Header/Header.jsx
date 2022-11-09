@@ -25,7 +25,7 @@ const Header = () => {
       } sticky top-0 left-0 z-[999]`}
     >
       <nav className={`w-full ${thim ? "bg-white" : "bg-black"} py-2`}>
-        <div className="justify-between mx-auto w-10/12 md:w-10/12  lg:items-center lg:flex ">
+        <div className="navbar_wraper justify-between mx-auto w-10/12 md:w-10/12  lg:items-center lg:flex ">
           <div className="flex items-center justify-between py-2 lg:block">
             <div className="rounded-full overflow-hidden	">
               <Link className="" to="#">
@@ -57,7 +57,7 @@ const Header = () => {
             >
               <div className="menu_wraper">
                 <ul className="items-center justify-between space-y-8 lg:flex ">
-                  <li className="flex justify-center items-center menu_link px-8 sm:w-[9rem] sm:mx-auto md:w-[9rem] md:mx-auto lg:m-[3px]">
+                  <li className="flex justify-center items-center menu_link px-2 sm:w-[9rem] sm:mx-auto md:w-[9rem] md:mx-auto lg:m-[3px]">
                     <Link to="/home">
                       Home
                       <span></span>
@@ -66,16 +66,7 @@ const Header = () => {
                       <span></span>
                     </Link>
                   </li>
-                  <li className="flex justify-center items-center menu_link px-8 sm:w-[9rem] sm:mx-auto md:w-[9rem] md:mx-auto lg:m-[3px]">
-                    <Link to="/about">
-                      About
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                    </Link>
-                  </li>
-                  <li className="flex justify-center items-center menu_link px-8 sm:w-[9rem] sm:mx-auto md:w-[9rem] md:mx-auto lg:m-[3px]">
+                  <li className="flex justify-center items-center menu_link px-2 sm:w-[9rem] sm:mx-auto md:w-[9rem] md:mx-auto lg:m-[3px]">
                     <Link to="/services ">
                       Services
                       <span></span>
@@ -84,7 +75,16 @@ const Header = () => {
                       <span></span>
                     </Link>
                   </li>
-                  <li className="flex justify-center items-center menu_link px-8 sm:w-[9rem] sm:mx-auto md:w-[9rem] md:mx-auto lg:m-[3px]">
+                  <li className="flex justify-center items-center menu_link px-2 sm:w-[9rem] sm:mx-auto md:w-[9rem] md:mx-auto lg:m-[3px]">
+                    <Link to="/reviewadd ">
+                      Review Add
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </Link>
+                  </li>
+                  <li className="flex justify-center items-center menu_link px-2 sm:w-[9rem] sm:mx-auto md:w-[9rem] md:mx-auto lg:m-[3px]">
                     <Link to="/blog">
                       Blog
                       <span></span>
@@ -93,7 +93,7 @@ const Header = () => {
                       <span></span>
                     </Link>
                   </li>
-                  <li className="flex justify-center items-center menu_link px-8 sm:w-[9rem] sm:mx-auto md:w-[9rem] md:mx-auto lg:m-[3px]">
+                  <li className="flex justify-center items-center menu_link px-2 sm:w-[9rem] sm:mx-auto md:w-[9rem] md:mx-auto lg:m-[3px]">
                     {currentUser ? (
                       <Link onClick={handelUserLogOut} to="/">
                         LogOut
