@@ -1,14 +1,15 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "./ServicesCard.css";
-import { BsStopwatch } from "react-icons/bs";
+import { BsArrowRight, BsStopwatch } from "react-icons/bs";
 import Rating from "../Rating/Rating";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 import "./ServicesCard.css";
 
 const ServicesCard = ({ card }) => {
   const { _id, rating, details, title, img, time } = card;
-  const { Nodata } = useContext(AuthContext);
+  const { Nodata, thim } = useContext(AuthContext);
+
   return (
     <div className="card card-side bg-slate-900 shadow-xl overflow-hidden	">
       <div className="services_card_wraper flex justify-between items-start">
@@ -43,7 +44,13 @@ const ServicesCard = ({ card }) => {
                 <rect id="shape" height="40" width="150" />
               </svg>
               <div className="text" id="details_btn">
-                <Link to={`/services/${_id}`}>Details</Link>
+                <Link
+                  to={`/services/${_id}`}
+                  className="flex justify-center items-center"
+                >
+                  Details
+                  <BsArrowRight className="ml-2 mt-1" />
+                </Link>
               </div>
             </div>
           </div>

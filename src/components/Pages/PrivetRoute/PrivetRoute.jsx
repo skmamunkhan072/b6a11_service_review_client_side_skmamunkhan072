@@ -3,12 +3,13 @@ import { Navigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 
 const PrivetRoute = ({ children }) => {
-  const { loading, user } = useContext(AuthContext);
+  const { loading, currentUser } = useContext(AuthContext);
+  // console.log(currentUser);
   const location = useLocation();
-  if (loding) {
+  if (loading) {
     return <p>hello .............................</p>;
   }
-  if (!user) {
+  if (!currentUser) {
     return <Navigate to="/login" state={{ from: location }} replace></Navigate>;
   }
   return children;

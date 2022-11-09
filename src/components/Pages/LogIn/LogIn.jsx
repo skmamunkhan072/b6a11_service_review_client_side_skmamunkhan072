@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 import { FaLock } from "react-icons/fa";
 import { FaLockOpen } from "react-icons/fa";
@@ -20,25 +20,26 @@ const LogIn = () => {
   const [show, setShow] = useState(true);
   const navigate = useNavigate();
   const [error, setError] = useState("");
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+  // login email adn password
   const handelLogIn = (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form?.email?.value;
     const password = form?.password?.value;
-    // console.log(email, password);
 
     // Login function
     handelLoginUser(email, password)
       .then((currentUser) => {
         const user = currentUser.user;
         if (user.email) {
-          navigate("/");
+          navigate(from, { replace: true });
         }
-        console.log(user);
+        // console.log(user.email);
         form.reset();
       })
       .catch((error) => {
-        // console.log(error.message);
         const errorMessage = error.message.split("/")[1];
         const eororMesssagetext = errorMessage.split(")")[0];
         setError(eororMesssagetext);
@@ -50,9 +51,9 @@ const LogIn = () => {
     handelGoogleSingIn()
       .then((result) => {
         const user = result.user;
-        // console.log(result.user);
-        if (user) {
-          navigate("/");
+        console.log(user.email);
+        if (user.email) {
+          navigate(from, { replace: true });
         }
       })
       .catch((error) => console.log(error));
@@ -63,10 +64,7 @@ const LogIn = () => {
     handelFacebookLogin()
       .then((result) => {
         const user = result.user;
-        // console.log(result);
-        if (user) {
-          navigate("/");
-        }
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.log(error);
@@ -81,10 +79,8 @@ const LogIn = () => {
     handelGitHubLogin()
       .then((result) => {
         const user = result.user;
-        if (user) {
-          navigate("/");
-        }
-        // console.log(user);
+        console.log(user.email);
+        navigate(from, { replace: true });
       })
       .catch((error) => console.log(error));
   };

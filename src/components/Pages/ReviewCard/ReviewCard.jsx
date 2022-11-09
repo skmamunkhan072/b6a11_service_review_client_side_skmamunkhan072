@@ -1,22 +1,38 @@
-import React from "react";
+import React, { useContext } from "react";
 import { BsStopwatch } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import Rating from "../Share/Rating/Rating";
 import SectionTaitle from "../Share/SectionTaitle/SectionTaitle";
+import { BsArrowRight } from "react-icons/bs";
+import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
+import "./ReviewCard.css";
 
 const ReviewCard = () => {
+  const { thim } = useContext(AuthContext);
   return (
     <div>
       <div>
         <SectionTaitle taitle={"Review"} />
       </div>
-      <div className="mt-10 flex justify-end items-center">
+      <div
+        className={`mt-10 flex justify-end items-center ${
+          thim ? "text_color" : ""
+        }`}
+      >
+        <h1 className="mr-5 flex items-center justify-center">
+          Please your review add and click the review button !!!!
+          <BsArrowRight
+            className={`ml-3 text-2xl ${thim ? "text_color" : ""}`}
+          />
+        </h1>
         <div className="svg-wrapper">
           <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
             <rect id="shape" height="40" width="150" />
           </svg>
           <div className="text" id="review_add_btn">
-            <Link to="/reviewadd">Review Add</Link>
+            <Link to="/reviewadd" className="flex justify-center items-center">
+              Review Add <BsArrowRight className="ml-2 mt-1" />
+            </Link>
           </div>
         </div>
       </div>

@@ -1,6 +1,7 @@
 #review_add_btn {
-  left: 23%;
+  left: 16%;
 }
+
 @media screen and (max-width: 781px) {
   .review_cad-wraper {
     flex-direction: column;

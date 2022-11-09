@@ -9,7 +9,6 @@ import "./ServiceDetailsPage.css";
 const ServiceDetailsPage = () => {
   const { thim } = useContext(AuthContext);
   const servicesDetailsData = useLoaderData();
-  console.log(servicesDetailsData);
   const { details, img, rating, time, title, _id } = servicesDetailsData;
   return (
     <div className="py-20 ">
@@ -28,8 +27,10 @@ const ServiceDetailsPage = () => {
           </div>
         </div>
         <div className="my-5 text-start w-3/4 mx-auto">
-          <h1 className="card-title text-3xl">{title}</h1>
-          <p className="my-5">{details}</p>
+          <h1 className={`card-title text-3xl ${thim ? "text_color" : ""}`}>
+            {title}
+          </h1>
+          <p className={`my-5 ${thim ? "text_color" : ""}`}>{details}</p>
           <div className="flex justify-between items-center">
             <div className="flex justify-start items-center">
               <Rating />

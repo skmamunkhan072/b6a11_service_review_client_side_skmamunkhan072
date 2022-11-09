@@ -7,9 +7,12 @@ import Header from "../../Pages/Share/Header/Header";
 const MainLayout = () => {
   const { thim, setServicesdata } = useContext(AuthContext);
   const servicesData = useLoaderData();
-  // setServicesdata(servicesData);
   useEffect(() => {
-    setServicesdata(servicesData);
+    if (servicesData) {
+      return setServicesdata(servicesData);
+    } else {
+      return;
+    }
   }, [servicesData]);
   return (
     <>

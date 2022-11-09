@@ -113,7 +113,7 @@ const SingIn = () => {
                           alt="logo"
                         />
                         <h4 className="text-2xl font-semibold mt-1 mb-12 pb-1">
-                          Login
+                          Sing Up
                         </h4>
                       </div>
                       <form onSubmit={handelSingIn}>

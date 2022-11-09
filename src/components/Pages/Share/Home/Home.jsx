@@ -20,7 +20,9 @@ const Home = () => {
   const servicesData = useLoaderData();
   useEffect(() => {
     if (servicesData) {
-      setServicesdata(servicesData);
+      return setServicesdata(servicesData);
+    } else {
+      return;
     }
   }, [servicesData]);
   const slider = [
