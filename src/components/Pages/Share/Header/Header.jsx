@@ -123,6 +123,14 @@ const Header = () => {
                       <MdOutlineNightlight className="cursor-pointer" />
                     )}
                   </div>
+
+                  <div className="flex justify-center items-center space-x-2">
+                    <img
+                      src="https://source.unsplash.com/30x30/?random"
+                      alt=""
+                      className="w-10 h-10 rounded-full dark:bg-gray-500 dark:bg-gray-700"
+                    />
+                  </div>
                 </ul>
               </div>
             </div>

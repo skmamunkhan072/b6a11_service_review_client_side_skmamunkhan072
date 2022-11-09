@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 import { FaLock } from "react-icons/fa";
 import { FaLockOpen } from "react-icons/fa";
@@ -21,7 +21,8 @@ const SingIn = () => {
   } = useContext(AuthContext);
   const [show, setShow] = useState(true);
   const [error, setError] = useState("");
-
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   const navigate = useNavigate();
 
   // user name and password adn sing in
@@ -38,7 +39,9 @@ const SingIn = () => {
       .then((result) => {
         const user = result.user;
         // console.log(user);
-        navigate("/");
+        if (user.email) {
+          navigate(from, { replace: true });
+        }
       })
       .catch((error) => {
         console.log(error);
@@ -54,7 +57,7 @@ const SingIn = () => {
       .then((result) => {
         const user = result.user;
         if (user) {
-          navigate("/");
+          navigate(from, { replace: true });
         }
         console.log(result);
       })
@@ -73,7 +76,7 @@ const SingIn = () => {
         const user = result.user;
         // console.log(user);
         if (user) {
-          navigate("/");
+          navigate(from, { replace: true });
         }
       })
       .catch((error) => console.log(error));
@@ -84,7 +87,7 @@ const SingIn = () => {
       .then((result) => {
         const user = result.user;
         if (user) {
-          navigate("/");
+          navigate(from, { replace: true });
         }
         // console.log(result.user);
       })
@@ -129,9 +132,28 @@ const SingIn = () => {
                           </label>
                           <input
                             type="name"
+                            required
                             className="mt-2 form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                             id="name"
-                            placeholder="Enter your Password"
+                            placeholder="Enter your name"
+                          />
+                          <p className="absolute bottom-1 right-1 text-gray-600 z-3 bg-white w-8 h-8 flex justify-center items-center">
+                            <MdDriveFileRenameOutline />
+                          </p>
+                        </div>
+                        <div className="relative mb-4">
+                          <label
+                            htmlFor="photo_url"
+                            className="text-gray-500 text-start flex justify-between cursor-pointer	"
+                          >
+                            <p> Enter your Photo URL</p>
+                          </label>
+                          <input
+                            type="url"
+                            required
+                            className="mt-2 form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                            id="photo_url"
+                            placeholder="http:// Enter your PhotoURL"
                           />
                           <p className="absolute bottom-1 right-1 text-gray-600 z-3 bg-white w-8 h-8 flex justify-center items-center">
                             <MdDriveFileRenameOutline />
@@ -147,6 +169,7 @@ const SingIn = () => {
                           </label>
                           <input
                             type="email"
+                            required
                             className="mt-2 form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                             id="email"
                             placeholder="Enter your Password"

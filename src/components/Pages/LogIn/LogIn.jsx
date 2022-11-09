@@ -22,6 +22,7 @@ const LogIn = () => {
   const [error, setError] = useState("");
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
+
   // login email adn password
   const handelLogIn = (event) => {
     event.preventDefault();
@@ -64,7 +65,9 @@ const LogIn = () => {
     handelFacebookLogin()
       .then((result) => {
         const user = result.user;
-        navigate(from, { replace: true });
+        if (user) {
+          navigate(from, { replace: true });
+        }
       })
       .catch((error) => {
         console.log(error);
@@ -80,7 +83,9 @@ const LogIn = () => {
       .then((result) => {
         const user = result.user;
         console.log(user.email);
-        navigate(from, { replace: true });
+        if (user) {
+          navigate(from, { replace: true });
+        }
       })
       .catch((error) => console.log(error));
   };
