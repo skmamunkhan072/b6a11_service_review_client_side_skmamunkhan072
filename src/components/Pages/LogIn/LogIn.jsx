@@ -37,7 +37,7 @@ const LogIn = () => {
         const user = currentUser.user;
         // console.log(user.email);
         if (user.uid) {
-          fetch("http://localhost:5000/jwt", {
+          fetch("https://home-kitchen-server.vercel.app/jwt", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",

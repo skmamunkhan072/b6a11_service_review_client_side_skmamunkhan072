@@ -37,7 +37,6 @@ const AuthProvider = ({ children }) => {
   const [updetData, SetUpdetData] = useState({});
 
   const Nodata = "No data Found";
-  console.log(currentUser);
 
   // Crete User Google email adn password
   const handelEmailAndPassword = (email, password) => {

@@ -9,7 +9,6 @@ import "./ServiceDetailsPage.css";
 const ServiceDetailsPage = () => {
   const { thim } = useContext(AuthContext);
   const servicesDetailsData = useLoaderData();
-  console.log(servicesDetailsData);
   const { details, img, rating, time, title, _id } = servicesDetailsData;
   return (
     <div className="py-20 ">

@@ -1,4 +1,5 @@
 import React from "react";
+import PhotoView from "../PhotoView/PhotoView";
 
 const Blog = () => {
   return (
@@ -79,6 +80,8 @@ const Blog = () => {
           </p>
         </div>
       </div>
+
+      {/* <PhotoView /> */}
     </div>
   );
 };

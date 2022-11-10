@@ -27,7 +27,7 @@ const ClintReview = () => {
         },
         body: JSON.stringify(postData),
       };
-      fetch("http://localhost:5000/review", requestOptions)
+      fetch("https://home-kitchen-server.vercel.app/review", requestOptions)
         .then((res) => {
           if (res.status === 401 || res.status === 403) {
             return userLogOut();
@@ -45,30 +45,25 @@ const ClintReview = () => {
 
   // console.log(clintReviewData);
   //   client reviewCard delete
-  const handelClientReviewDelete = (email, id) => {
-    console.log(email, id);
-    const postData = { email, id };
+  const handelClientReviewDelete = (id) => {
     const requestOptions = {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(postData),
     };
-    fetch("http://localhost:5000/review", requestOptions)
+    fetch(`https://home-kitchen-server.vercel.app/${id}`, requestOptions)
       .then((res) => res.json())
       .then((data) => {
-        // setClintReviewData(clientsReviewData);
-        toast.success("🦄 Your Review is Delete successful !!!", {
-          position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "dark",
-        });
         if (data.deletedCount > 0) {
-          console.log("hello Delete");
+          toast.success("🦄 Your Review is Delete successful !!!", {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+          });
         }
       });
   };

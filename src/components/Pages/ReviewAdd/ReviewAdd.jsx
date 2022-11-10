@@ -41,7 +41,7 @@ const ReviewAdd = () => {
         },
         body: JSON.stringify(postData),
       };
-      fetch("http://localhost:5000/reviewadd", requestOptions)
+      fetch("https://home-kitchen-server.vercel.app/reviewadd", requestOptions)
         .then((res) => {
           if (res.status === 401 || res.status === 403) {
             return userLogOut();
@@ -60,7 +60,6 @@ const ReviewAdd = () => {
             theme: "dark",
           });
           navigate(`/services/${serviceReviewCardId}`);
-          console.log(data.insertedId);
         });
       return;
     } else {
@@ -74,7 +73,7 @@ const ReviewAdd = () => {
         },
         body: JSON.stringify(data),
       };
-      fetch(`http://localhost:5000/review`, requestOptions)
+      fetch(`https://home-kitchen-server.vercel.app/review`, requestOptions)
         .then((res) => res.json())
         .then((data) => {
           // console.log(data);
@@ -82,7 +81,7 @@ const ReviewAdd = () => {
             const updetDataResult = clintReviewData.filter(
               (clsData) => clsData._id !== updetData
             );
-            console.log(updetDataResult);
+
             const updetData = clintReviewData.find(
               (clsData) => clsData._id === updetData
             );
@@ -90,7 +89,6 @@ const ReviewAdd = () => {
             updetData.email = updetData.email;
             updetData.detailsPara = updetData.detailsPara;
             const newClientReviewData = [updetData, ...updetDataResult];
-            console.log(newClientReviewData, updetData, updetDataResult);
             setClintReviewData(newClientReviewData);
           }
         });

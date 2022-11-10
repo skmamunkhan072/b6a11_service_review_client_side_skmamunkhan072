@@ -25,7 +25,10 @@ const ReviewCardSection = ({ _id }) => {
       },
       body: JSON.stringify(postData),
     };
-    fetch(`http://localhost:5000/services/${_id}`, requestOptions)
+    fetch(
+      `https://home-kitchen-server.vercel.app/services/${_id}`,
+      requestOptions
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data) {
@@ -34,7 +37,6 @@ const ReviewCardSection = ({ _id }) => {
       });
   }, [_id]);
 
-  console.log(clintsReviewData);
   return (
     <div>
       <div>
