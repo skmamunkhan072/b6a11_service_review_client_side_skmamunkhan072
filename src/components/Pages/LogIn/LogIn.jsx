@@ -34,10 +34,10 @@ const LogIn = () => {
     handelLoginUser(email, password)
       .then((currentUser) => {
         const user = currentUser.user;
-        if (user.email) {
+        // console.log(user.email);
+        if (user.uid) {
           navigate(from, { replace: true });
         }
-        // console.log(user.email);
         form.reset();
       })
       .catch((error) => {
@@ -53,7 +53,7 @@ const LogIn = () => {
       .then((result) => {
         const user = result.user;
         console.log(user.email);
-        if (user.email) {
+        if (user.uid) {
           navigate(from, { replace: true });
         }
       })
@@ -65,7 +65,7 @@ const LogIn = () => {
     handelFacebookLogin()
       .then((result) => {
         const user = result.user;
-        if (user) {
+        if (user.uid) {
           navigate(from, { replace: true });
         }
       })
@@ -83,7 +83,7 @@ const LogIn = () => {
       .then((result) => {
         const user = result.user;
         console.log(user.email);
-        if (user) {
+        if (user.uid) {
           navigate(from, { replace: true });
         }
       })
@@ -130,6 +130,8 @@ const LogIn = () => {
                           </label>
                           <input
                             type="email"
+                            name="email"
+                            required
                             className="mt-2 form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                             id="email"
                             placeholder="Enter your Password"
@@ -153,10 +155,11 @@ const LogIn = () => {
                           </label>
                           <input
                             type={`${show ? "password" : "text"}`}
+                            required
+                            name="password"
                             className="mt-2 form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                             id="password"
                             placeholder="Enter your Password"
-                            required
                           />
                           <p
                             onClick={() => setShow(!show)}

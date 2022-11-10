@@ -9,6 +9,7 @@ import {
   signInWithPopup,
   FacebookAuthProvider,
   GithubAuthProvider,
+  updateProfile,
 } from "firebase/auth";
 import app from "../../Firebase/firebaseconfig/Firebase.config";
 
@@ -35,6 +36,11 @@ const AuthProvider = ({ children }) => {
   const handelEmailAndPassword = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
+  };
+
+  // Updeat user Profiel
+  const updeteUserProfile = (profile) => {
+    return updateProfile(auth.currentUser, profile);
   };
 
   // Login function
@@ -83,6 +89,7 @@ const AuthProvider = ({ children }) => {
     setThim,
     currentUser,
     handelEmailAndPassword,
+    updeteUserProfile,
     handelLoginUser,
     handelGoogleSingIn,
     handelFacebookLogin,
