@@ -37,6 +37,22 @@ const LogIn = () => {
         const user = currentUser.user;
         // console.log(user.email);
         if (user.uid) {
+          fetch("http://localhost:5000/jwt", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              authorization: `Good ${localStorage.getItem("home_kitchen")}`,
+            },
+            body: JSON.stringify(currentUser),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              console.log(data);
+              // local storage is the easiest but not the best place to store jwt token
+              localStorage.setItem("home_kitchen", data.token);
+              navigate(from, { replace: true });
+            });
+
           toast.success("🦄 Login is successful !", {
             position: "top-center",
             autoClose: 5000,
@@ -103,9 +119,6 @@ const LogIn = () => {
       .catch((error) => {
         console.log(error);
       });
-    fetch()
-      .then((res) => res.json())
-      .then((data) => console.log(data));
   };
 
   // Git Hub Login function

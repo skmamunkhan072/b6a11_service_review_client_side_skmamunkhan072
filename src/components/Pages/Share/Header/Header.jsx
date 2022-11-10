@@ -10,7 +10,6 @@ import "./Header.css";
 const Header = () => {
   const { thim, setThim, currentUser, userLogOut } = useContext(AuthContext);
   const [navbar, setNavbar] = useState(false);
-
   // user logout function
   const handelUserLogOut = () => {
     userLogOut()
@@ -112,6 +111,19 @@ const Header = () => {
                       </Link>
                     )}
                   </li>
+                  <li className="flex justify-center items-center menu_link px-2 sm:w-[9rem] sm:mx-auto md:w-[9rem] md:mx-auto lg:m-[3px]">
+                    {currentUser ? (
+                      <></>
+                    ) : (
+                      <Link to="/singin">
+                        Sing In
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                      </Link>
+                    )}
+                  </li>
 
                   <div
                     className="thim_btn_wraper flex justify-center items-center "
@@ -124,11 +136,18 @@ const Header = () => {
                     )}
                   </div>
 
-                  <div className="flex justify-center items-center space-x-2">
+                  <div
+                    id="Profile_img"
+                    className="flex justify-center items-center "
+                  >
                     <img
-                      src="https://source.unsplash.com/30x30/?random"
+                      src={
+                        currentUser
+                          ? currentUser.photoURL
+                          : "https://source.unsplash.com/30x30/?random"
+                      }
                       alt=""
-                      className="w-10 h-10 rounded-full dark:bg-gray-500 dark:bg-gray-700"
+                      className="w-10 h-10 rounded-full dark:bg-gray-500 dark:bg-gray-700 curso"
                     />
                   </div>
                 </ul>

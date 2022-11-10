@@ -11,6 +11,7 @@ const ReviewAdd = () => {
     clintReviewData,
     setClintReviewData,
     updetData,
+    userLogOut,
   } = useContext(AuthContext);
   const { displayName, email, photoURL } = currentUser;
   const navigate = useNavigate();
@@ -34,11 +35,19 @@ const ReviewAdd = () => {
       // post option
       const requestOptions = {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `Good ${localStorage.getItem("home_kitchen")}`,
+        },
         body: JSON.stringify(postData),
       };
       fetch("http://localhost:5000/reviewadd", requestOptions)
-        .then((res) => res.json())
+        .then((res) => {
+          if (res.status === 401 || res.status === 403) {
+            return userLogOut();
+          }
+          return res.json();
+        })
         .then((data) => {
           toast.success("🦄 Your Review add success!", {
             position: "top-center",
@@ -59,7 +68,10 @@ const ReviewAdd = () => {
       const data = { updetData, name, email, detailsPara };
       const requestOptions = {
         method: "PATCH",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `Good ${localStorage.getItem("home_kitchen")}`,
+        },
         body: JSON.stringify(data),
       };
       fetch(`http://localhost:5000/review`, requestOptions)

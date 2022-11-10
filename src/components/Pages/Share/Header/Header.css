@@ -68,6 +68,10 @@
   font-size: 2rem;
 }
 
+#Profile_img {
+  margin: 0 0 0 20px;
+}
+
 @media screen and (max-width: 1175px) {
   .navbar_wraper {
     width: 95%;

@@ -13,6 +13,9 @@ import SlidersItems from "../../SlidersItems/SlidersItems";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 import Services from "../../Services/Services";
 import { useLoaderData } from "react-router-dom";
+import AboutUs from "../../AboutUs/AboutUs";
+import Contents from "../../Contents/Contents";
+import QuickBrown from "../../QuickBrown/QuickBrown";
 
 const Home = () => {
   const { setSliderItem, setSelectSliderItem, servicesdata, setServicesdata } =
@@ -57,6 +60,9 @@ const Home = () => {
         </div>
       </div>
       <Services />
+      <AboutUs />
+      <Contents />
+      <QuickBrown />
     </div>
   );
 };

@@ -9,7 +9,7 @@ const ClintReview = () => {
     currentUser,
     clintReviewData,
     setClintReviewData,
-    updetData,
+    userLogOut,
     SetUpdetData,
     setReviewPage,
     reviewPage,
@@ -21,11 +21,19 @@ const ClintReview = () => {
       const postData = { email: currentUser.email };
       const requestOptions = {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `Good ${localStorage.getItem("home_kitchen")}`,
+        },
         body: JSON.stringify(postData),
       };
       fetch("http://localhost:5000/review", requestOptions)
-        .then((res) => res.json())
+        .then((res) => {
+          if (res.status === 401 || res.status === 403) {
+            return userLogOut();
+          }
+          return res.json();
+        })
         .then((data) => {
           if (data) {
             setClintReviewData(data);
@@ -62,7 +70,6 @@ const ClintReview = () => {
         if (data.deletedCount > 0) {
           console.log("hello Delete");
         }
-        console.log(data.deletedCount);
       });
   };
   // updete review data card
@@ -70,36 +77,6 @@ const ClintReview = () => {
     navigate("/reviewadd");
     SetUpdetData(id);
     setReviewPage(false);
-  };
-
-  const updetDataClient = (id) => {
-    console.log("helo");
-    const { name, email, detailsPara } = updetData;
-    const data = { id, name, email, detailsPara };
-    const requestOptions = {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    };
-    fetch(`http://localhost:5000/review`, requestOptions)
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.modifiedCount > 0) {
-          const updetDataResult = clintReviewData.filter(
-            (clsData) => clsData._id !== id
-          );
-
-          const updetData = clintReviewData.find(
-            (clsData) => clsData._id === id
-          );
-          updetData.name = updetData.name;
-          updetData.email = updetData.email;
-          updetData.detailsPara = updetData.detailsPara;
-          const newClientReviewData = [updetData, ...updetDataResult];
-          setClintReviewData(newClientReviewData);
-        }
-      });
   };
 
   return (

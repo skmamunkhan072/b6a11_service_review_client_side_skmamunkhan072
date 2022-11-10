@@ -10,7 +10,6 @@ const ReviewCardSection = ({ _id }) => {
   const {
     thim,
     setServiceReviewCardId,
-    reviewPage,
     setReviewPage,
     clintsReviewData,
     setClintsReviewData,
@@ -20,7 +19,10 @@ const ReviewCardSection = ({ _id }) => {
     const postData = { serviceReviewCardId: _id };
     const requestOptions = {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Good ${localStorage.getItem("home_kitchen")}`,
+      },
       body: JSON.stringify(postData),
     };
     fetch(`http://localhost:5000/services/${_id}`, requestOptions)
@@ -68,11 +70,11 @@ const ReviewCardSection = ({ _id }) => {
         </div>
       </div>
       {clintsReviewData.length !== 0 ? (
-        <>
+        <div>
           {clintsReviewData.map((reviewCard) => (
             <ReviewCard key={reviewCard._id} reviewCard={reviewCard} />
           ))}
-        </>
+        </div>
       ) : (
         <div className="text-4xl mt-20">
           NOt fount Review Please Review add{" "}
