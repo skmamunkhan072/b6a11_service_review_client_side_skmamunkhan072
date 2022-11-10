@@ -1,17 +1,50 @@
 import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 
 const ReviewAdd = () => {
-  const { currentUser } = useContext(AuthContext);
-  console.log(currentUser);
+  const { currentUser, serviceReviewCardId } = useContext(AuthContext);
   const { displayName, email, photoURL } = currentUser;
+  const navigate = useNavigate();
+
+  //handel review card data adn post data
   const handelreviewClintData = (event) => {
     event.preventDefault();
     const form = event.target;
     const name = form?.name?.value;
     const email = form?.email?.value;
     const detailsPara = form?.text?.value;
-    console.log(name, email, detailsPara);
+    const postData = {
+      serviceReviewCardId,
+      name,
+      email,
+      detailsPara,
+      photoURL,
+    };
+
+    // post option
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(postData),
+    };
+    fetch("http://localhost:5000/reviewadd", requestOptions)
+      .then((res) => res.json())
+      .then((data) => {
+        toast.success("🦄 Your Review add success!", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+        navigate(`/services/${serviceReviewCardId}`);
+        console.log(data.insertedId);
+      });
   };
   return (
     <div className="mt-20">
@@ -27,16 +60,23 @@ const ReviewAdd = () => {
           <fieldset className="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-900 py-10">
             <div className="space-y-2 col-span-full lg:col-span-1">
               <p className="font-medium mb-10">Profile</p>
-              <div className="flex justify-center items-center space-x-2">
-                <img
-                  src={
-                    photoURL
-                      ? photoURL
-                      : "https://source.unsplash.com/30x30/?random"
-                  }
-                  alt="User profile"
-                  className="w-[100px] h-[100px] rounded-full dark:bg-gray-500 dark:bg-gray-700"
-                />
+
+              <div className="overflow-hidden">
+                <div className="flex justify-center items-center space-x-2">
+                  <img
+                    src={
+                      photoURL
+                        ? photoURL
+                        : "https://source.unsplash.com/30x30/?random"
+                    }
+                    alt="User profile"
+                    className="w-[100px] h-[100px] rounded-full dark:bg-gray-500 dark:bg-gray-700"
+                  />
+                </div>
+                <div className="pt-4">
+                  <p>{displayName}</p>
+                  <h3>{email}</h3>
+                </div>
               </div>
             </div>
             <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
@@ -46,6 +86,7 @@ const ReviewAdd = () => {
                   <input
                     id="username"
                     type="name"
+                    name="name"
                     defaultValue={displayName}
                     readOnly
                     placeholder="Username"
@@ -59,6 +100,7 @@ const ReviewAdd = () => {
                   <input
                     id="userEmail"
                     type="email"
+                    name="email"
                     placeholder="Enter your email"
                     defaultValue={email}
                     readOnly
@@ -72,6 +114,7 @@ const ReviewAdd = () => {
                   <textarea
                     id="review_text"
                     type="text"
+                    name="text"
                     placeholder="Enter your Review details"
                     className="text_color text-xl w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900 mt-4 p-5 h-[300px]"
                   ></textarea>

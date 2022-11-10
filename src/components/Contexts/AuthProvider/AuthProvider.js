@@ -29,6 +29,9 @@ const AuthProvider = ({ children }) => {
   const [selectSliderItem, setSelectSliderItem] = useState(true);
   const [servicesdata, setServicesdata] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [serviceReviewCardId, setServiceReviewCardId] = useState("");
+  const [clintsReviewData, setClintsReviewData] = useState([]);
+  const [clintReviewData, setClintReviewData] = useState([]);
 
   const Nodata = "No data Found";
 
@@ -104,6 +107,10 @@ const AuthProvider = ({ children }) => {
     setServicesdata,
     loading,
     setLoading,
+    serviceReviewCardId,
+    setServiceReviewCardId,
+    clintsReviewData,
+    setClintsReviewData,
   };
   return (
     <AuthContext.Provider value={AuthContextInfo}>

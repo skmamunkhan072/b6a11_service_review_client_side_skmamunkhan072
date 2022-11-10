@@ -10,6 +10,7 @@ import { FaFacebookF } from "react-icons/fa";
 import { MdDriveFileRenameOutline } from "react-icons/md";
 import "./SingIn.css";
 import SingInImg from "../../Assets/imessage/SinginImg/SingIn1.png";
+import { toast } from "react-toastify";
 
 const SingIn = () => {
   const {
@@ -47,6 +48,16 @@ const SingIn = () => {
           .then(() => console.log("chang your name"))
           .catch((error) => console.error(error));
         if (user.uid) {
+          toast.success("🦄 Sing in is successful !", {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+          });
           navigate(from, { replace: true });
         }
         // console.log(user);
@@ -65,6 +76,16 @@ const SingIn = () => {
       .then((result) => {
         const user = result.user;
         if (user.uid) {
+          toast.success("🦄 Sing in is successful !", {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+          });
           navigate(from, { replace: true });
         }
         console.log(result);
@@ -81,6 +102,16 @@ const SingIn = () => {
         const user = result.user;
         // console.log(user);
         if (user.uid) {
+          toast.success("🦄 Sing in is successful !", {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+          });
           navigate(from, { replace: true });
         }
       })
@@ -92,6 +123,16 @@ const SingIn = () => {
       .then((result) => {
         const user = result.user;
         if (user.uid) {
+          toast.success("🦄 Sing in is successful !", {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+          });
           navigate(from, { replace: true });
         }
       })

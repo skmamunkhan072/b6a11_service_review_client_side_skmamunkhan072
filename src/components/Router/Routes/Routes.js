@@ -13,7 +13,7 @@ import SingIn from "../../Pages/SingIn/SingIn";
 export const router = createBrowserRouter([
   {
     path: "/",
-    loader: () => fetch("https://home-kitchen-server.vercel.app/service/"),
+    loader: () => fetch("http://localhost:5000/service/"),
     element: <MainLayout />,
     errorElement: <div>No fount 404</div>,
     errorElement: <ErrorCompo />,
@@ -24,7 +24,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/Home",
-        loader: () => fetch("https://home-kitchen-server.vercel.app/service/"),
+        loader: () => fetch("http://localhost:5000/service/"),
         element: <Home />,
       },
       {
@@ -37,13 +37,13 @@ export const router = createBrowserRouter([
       },
       {
         path: "/services",
-        loader: () => fetch("https://home-kitchen-server.vercel.app/services/"),
+        loader: () => fetch("http://localhost:5000/services/"),
         element: <Services />,
       },
       {
         path: "/services/:id",
         loader: ({ params }) =>
-          fetch(`https://home-kitchen-server.vercel.app/services/${params.id}`),
+          fetch(`http://localhost:5000/services/${params.id}`),
         element: <ServiceDetailsPage />,
       },
       { path: "/singIn", element: <SingIn /> },

@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { BsStopwatch } from "react-icons/bs";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
-import ReviewCard from "../ReviewCard/ReviewCard";
+import ReviewCardSection from "../ReviewCardSection/ReviewCardSection";
 import Rating from "../Share/Rating/Rating";
 import "./ServiceDetailsPage.css";
 
@@ -46,7 +46,7 @@ const ServiceDetailsPage = () => {
         </div>
       </section>
       <section className="py-20 w-full lg:w-3/4 mx-auto">
-        <ReviewCard />
+        <ReviewCardSection _id={_id} />
       </section>
     </div>
   );

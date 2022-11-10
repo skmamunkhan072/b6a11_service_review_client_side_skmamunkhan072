@@ -8,6 +8,7 @@ import { AiOutlineGooglePlus } from "react-icons/ai";
 import { AiOutlineGithub } from "react-icons/ai";
 import { FaFacebookF } from "react-icons/fa";
 import LoginImg from "../../Assets/imessage/LoginImg/4.png";
+import { toast } from "react-toastify";
 
 const LogIn = () => {
   const {
@@ -36,6 +37,16 @@ const LogIn = () => {
         const user = currentUser.user;
         // console.log(user.email);
         if (user.uid) {
+          toast.success("🦄 Login is successful !", {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+          });
           navigate(from, { replace: true });
         }
         form.reset();
@@ -54,6 +65,16 @@ const LogIn = () => {
         const user = result.user;
         console.log(user.email);
         if (user.uid) {
+          toast.success("🦄 Login is successful !", {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+          });
           navigate(from, { replace: true });
         }
       })
@@ -66,6 +87,16 @@ const LogIn = () => {
       .then((result) => {
         const user = result.user;
         if (user.uid) {
+          toast.success("🦄 Login is successful !", {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+          });
           navigate(from, { replace: true });
         }
       })
@@ -84,6 +115,17 @@ const LogIn = () => {
         const user = result.user;
         console.log(user.email);
         if (user.uid) {
+          toast.success("🦄 Login is successful !", {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+          });
+
           navigate(from, { replace: true });
         }
       })
