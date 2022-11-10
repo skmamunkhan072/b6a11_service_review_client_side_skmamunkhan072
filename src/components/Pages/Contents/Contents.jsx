@@ -14,16 +14,16 @@ const Contents = () => {
                   thim ? "text-gray-900" : ""
                 } sm:text-4xl sm:leading-none`}
               >
-                The quick, brown fox
+                ALFREDO’
                 <br className="hidden md:block" />
                 jumps over
                 <span className="inline-block text-deep-purple-accent-400">
-                  a lazy dog
+                  S PIZZA.
                 </span>
               </h2>
             </div>
             <div className="lg:w-1/2">
-              <p className="mb-4 text-base text-gray-700">
+              <p className="mb-4 text-base">
                 Sed ut perspiciatis unde omnis iste natus error sit voluptatem
                 accusantium doloremque rem aperiam, eaque ipsa quae. Sed ut
                 perspiciatis unde omnis iste. Sed ut perspiciatis unde omnis

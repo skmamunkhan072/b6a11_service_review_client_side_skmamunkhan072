@@ -12,18 +12,20 @@ const QuickBrown = () => {
             <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight sm:text-4xl sm:leading-none">
               The quick, brown fox
               <br className="hidden md:block" />
-              jumps over
+              Choose from a
               <span className="relative px-1">
                 <div className="absolute inset-x-0 bottom-0 h-3 transform -skew-x-12 bg-teal-accent-400" />
                 <span className="relative inline-block text-deep-purple-accent-400">
-                  a lazy dog
+                  curated selection
                 </span>
               </span>
             </h2>
             <p className="text-base d:text-lg">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-              quae. explicabo.
+              Make your business shine online with a custom pizza website
+              designed just for you by a professional designer. Need ideas?
+              We’ve collected some amazing examples of pizza websites from our
+              global community of designers. Get inspired and start planning the
+              perfect pizza web design today.
             </p>
           </div>
           <div className="grid gap-5 row-gap-8 sm:grid-cols-2">
@@ -33,8 +35,7 @@ const QuickBrown = () => {
                   I'll be sure to note that in my log
                 </h6>
                 <p className="text-sm text-gray-900">
-                  Lookout flogging bilge rat main sheet bilge water nipper fluke
-                  to go on account heave down.
+                  PIZZA THAT WILL MAKE YOU SMILE FROM CHEEK TO CHEEK
                 </p>
               </div>
             </div>
@@ -44,8 +45,13 @@ const QuickBrown = () => {
                   A business big enough that it could be listed
                 </h6>
                 <p className="text-sm text-gray-900">
-                  Those options are already baked in with this model shoot me an
-                  email clear.
+                  Voluptatem ea rerum nisi. Ullam debitis optio. Quae odio quasi
+                  repellat sit fugiat dolor manet. Officia et dolorum. Eos non
+                  itaque ut libero dolorum hic voluptas repudiandae. Fugiat
+                  bisun quos et odit vel optio. Autem neque voluptatum. Et et
+                  ducimus ut est aut. Voluptates qui alem similique aut eius.
+                  Aperiam alias non soluta qui quos eos. Voluptatem nam iure
+                  voluptatem officiis non velit.
                 </p>
               </div>
             </div>
