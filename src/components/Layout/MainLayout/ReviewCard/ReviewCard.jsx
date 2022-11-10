@@ -1,10 +1,10 @@
 import React from "react";
 import { BsStopwatch } from "react-icons/bs";
-import Rating from "../Rating/Rating";
+import Rating from "../../../Pages/Share/Rating/Rating";
 
 const ReviewCard = ({ reviewCard }) => {
   const { detailsPara, email, name, _id, photoURL } = reviewCard;
-  console.log(reviewCard);
+  // console.log(reviewCard, secret);
   return (
     <div>
       <div className="mt-10">
@@ -23,7 +23,9 @@ const ReviewCard = ({ reviewCard }) => {
             </div>
 
             <div className="review_para text-start ml-10 w-full">
-              <h1 className="text-3xl font-bold mb-5">{name}</h1>
+              <div className="flex justify-between">
+                <h1 className="text-3xl font-bold mb-5">{name}</h1>
+              </div>
               <p>{detailsPara}</p>
               <div className="flex justify-between items-center w-full">
                 <div>

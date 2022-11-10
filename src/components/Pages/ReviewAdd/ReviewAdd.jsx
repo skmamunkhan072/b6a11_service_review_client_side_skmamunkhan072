@@ -4,7 +4,14 @@ import { toast } from "react-toastify";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 
 const ReviewAdd = () => {
-  const { currentUser, serviceReviewCardId } = useContext(AuthContext);
+  const {
+    currentUser,
+    serviceReviewCardId,
+    reviewPage,
+    clintReviewData,
+    setClintReviewData,
+    updetData,
+  } = useContext(AuthContext);
   const { displayName, email, photoURL } = currentUser;
   const navigate = useNavigate();
 
@@ -15,36 +22,70 @@ const ReviewAdd = () => {
     const name = form?.name?.value;
     const email = form?.email?.value;
     const detailsPara = form?.text?.value;
-    const postData = {
-      serviceReviewCardId,
-      name,
-      email,
-      detailsPara,
-      photoURL,
-    };
+    if (reviewPage) {
+      const postData = {
+        serviceReviewCardId,
+        name,
+        email,
+        detailsPara,
+        photoURL,
+      };
 
-    // post option
-    const requestOptions = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(postData),
-    };
-    fetch("http://localhost:5000/reviewadd", requestOptions)
-      .then((res) => res.json())
-      .then((data) => {
-        toast.success("🦄 Your Review add success!", {
-          position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "dark",
+      // post option
+      const requestOptions = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(postData),
+      };
+      fetch("http://localhost:5000/reviewadd", requestOptions)
+        .then((res) => res.json())
+        .then((data) => {
+          toast.success("🦄 Your Review add success!", {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+          });
+          navigate(`/services/${serviceReviewCardId}`);
+          console.log(data.insertedId);
         });
-        navigate(`/services/${serviceReviewCardId}`);
-        console.log(data.insertedId);
-      });
+      return;
+    } else {
+      //  updet data client review
+      const data = { updetData, name, email, detailsPara };
+      const requestOptions = {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      };
+      fetch(`http://localhost:5000/review`, requestOptions)
+        .then((res) => res.json())
+        .then((data) => {
+          // console.log(data);
+          if (data.modifiedCount > 0) {
+            const updetDataResult = clintReviewData.filter(
+              (clsData) => clsData._id !== updetData
+            );
+            console.log(updetDataResult);
+            const updetData = clintReviewData.find(
+              (clsData) => clsData._id === updetData
+            );
+            updetData.name = updetData.name;
+            updetData.email = updetData.email;
+            updetData.detailsPara = updetData.detailsPara;
+            const newClientReviewData = [updetData, ...updetDataResult];
+            console.log(newClientReviewData, updetData, updetDataResult);
+            setClintReviewData(newClientReviewData);
+          }
+        });
+
+      navigate("/review");
+      return;
+    }
   };
   return (
     <div className="mt-20">
@@ -121,12 +162,21 @@ const ReviewAdd = () => {
                 </label>
               </div>
               <div className="col-span-full text-end">
-                <button
-                  type="submit"
-                  className="rounded-lg py-2 px-6 btn-secondary"
-                >
-                  Add now
-                </button>
+                {reviewPage ? (
+                  <button
+                    type="submit"
+                    className="rounded-lg py-2 px-6 btn-secondary"
+                  >
+                    Add now
+                  </button>
+                ) : (
+                  <button
+                    type="submit"
+                    className="rounded-lg py-2 px-6 btn-secondary"
+                  >
+                    submit Now
+                  </button>
+                )}
               </div>
             </div>
           </fieldset>

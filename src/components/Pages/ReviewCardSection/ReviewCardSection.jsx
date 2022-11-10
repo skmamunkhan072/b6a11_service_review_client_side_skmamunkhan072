@@ -1,22 +1,20 @@
 import React, { useContext, useEffect } from "react";
 import SectionTaitle from "../Share/SectionTaitle/SectionTaitle";
 import { BsArrowRight } from "react-icons/bs";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 import "./ReviewCardSection.css";
-import ReviewCard from "../Share/ReviewCard/ReviewCard";
-import { toast } from "react-toastify";
+import ReviewCard from "../../Layout/MainLayout/ReviewCard/ReviewCard";
 
 const ReviewCardSection = ({ _id }) => {
   const {
     thim,
     setServiceReviewCardId,
-    currentUser,
+    reviewPage,
+    setReviewPage,
     clintsReviewData,
     setClintsReviewData,
   } = useContext(AuthContext);
-  const { email } = currentUser;
-  const navigate = useNavigate();
 
   useEffect(() => {
     const postData = { serviceReviewCardId: _id };
@@ -32,7 +30,7 @@ const ReviewCardSection = ({ _id }) => {
           setClintsReviewData(data);
         }
       });
-  }, [currentUser]);
+  }, [_id]);
 
   console.log(clintsReviewData);
   return (
@@ -56,7 +54,10 @@ const ReviewCardSection = ({ _id }) => {
             </svg>
             <div className="text" id="review_add_btn">
               <Link
-                onClick={() => setServiceReviewCardId(_id)}
+                onClick={() => {
+                  setServiceReviewCardId(_id);
+                  setReviewPage(true);
+                }}
                 to="/reviewadd"
                 className="flex justify-center items-center"
               >
@@ -69,7 +70,7 @@ const ReviewCardSection = ({ _id }) => {
       {clintsReviewData.length !== 0 ? (
         <>
           {clintsReviewData.map((reviewCard) => (
-            <ReviewCard key={_id} reviewCard={reviewCard} />
+            <ReviewCard key={reviewCard._id} reviewCard={reviewCard} />
           ))}
         </>
       ) : (

@@ -67,7 +67,7 @@ const Header = () => {
                     </Link>
                   </li>
                   <li className="flex justify-center items-center menu_link px-2 sm:w-[9rem] sm:mx-auto md:w-[9rem] md:mx-auto lg:m-[3px]">
-                    <Link to="/services ">
+                    <Link to="/services">
                       Services
                       <span></span>
                       <span></span>
@@ -75,15 +75,15 @@ const Header = () => {
                       <span></span>
                     </Link>
                   </li>
-                  {/* <li className="flex justify-center items-center menu_link px-2 sm:w-[9rem] sm:mx-auto md:w-[9rem] md:mx-auto lg:m-[3px]">
-                    <Link to="/about ">
-                      About
+                  <li className="flex justify-center items-center menu_link px-2 sm:w-[9rem] sm:mx-auto md:w-[9rem] md:mx-auto lg:m-[3px]">
+                    <Link to={`/review`}>
+                      review
                       <span></span>
                       <span></span>
                       <span></span>
                       <span></span>
                     </Link>
-                  </li> */}
+                  </li>
                   <li className="flex justify-center items-center menu_link px-2 sm:w-[9rem] sm:mx-auto md:w-[9rem] md:mx-auto lg:m-[3px]">
                     <Link to="/blog">
                       Blog

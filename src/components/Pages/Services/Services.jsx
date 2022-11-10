@@ -10,6 +10,7 @@ const Services = () => {
   const { thim, servicesdata, setServicesdata } = useContext(AuthContext);
   const servicesData = useLoaderData();
   const { pathname } = useLocation();
+  console.log(servicesdata.length);
 
   useEffect(() => {
     if (servicesData) {

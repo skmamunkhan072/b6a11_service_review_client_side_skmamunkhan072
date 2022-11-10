@@ -1,6 +1,7 @@
 import { FaThemeco } from "react-icons/fa";
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../../Layout/MainLayout/MainLayout";
+import ClintReview from "../../Pages/ClintReview/ClintReview";
 import ErrorCompo from "../../Pages/ErrorCompo/ErrorCompo";
 import LogIn from "../../Pages/LogIn/LogIn";
 import PrivetRoute from "../../Pages/PrivetRoute/PrivetRoute";
@@ -48,6 +49,10 @@ export const router = createBrowserRouter([
       },
       { path: "/singIn", element: <SingIn /> },
       { path: "/login", element: <LogIn /> },
+      {
+        path: "/review",
+        element: <ClintReview />,
+      },
     ],
   },
 ]);
